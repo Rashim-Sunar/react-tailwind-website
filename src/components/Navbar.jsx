@@ -38,13 +38,13 @@ export default function Navbar() {
                 <button className='bg-secondary py-2 px-4 transition-all duration-300 rounded hover:text-white hover:bg-indigo-600'>Sign up</button>
             </div>
             {/* menu button only display on mobile */}
-            <dic className="md:hidden">
+            <div className="md:hidden">
                 <button onClick={toggleMenu} className='text-white focus:outline-none focus:text-gray-300'>
                    {
                         isMenuOpen?(<FaXmark className='w-6 h-6 text-primary'/>):(<MdMenu className='w-6 h-6 text-primary'/>)
                    } 
                 </button>
-            </dic>
+            </div>
         </div>
     </nav>
 
