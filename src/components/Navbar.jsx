@@ -4,6 +4,8 @@ import logo from '../assets/logo.png'
 import { GrLanguage } from "react-icons/gr";
 import { FaXmark } from "react-icons/fa6";
 import { MdMenu } from "react-icons/md";
+// import link from react scrollbar
+import { Link } from 'react-scroll';
 
 export default function Navbar() {
     const[isMenuOpen,setIsMenuOpen]=useState(false);
@@ -28,7 +30,7 @@ export default function Navbar() {
                  </a>
                  <ul className='md:flex space-x-12 hidden'>
                     {
-                        navItems.map(({link,path})=><a key={link} href={path} className='block hover:text-gray-500'>{link}</a>)
+                        navItems.map(({link,path})=><Link activeClass='active' smooth={true} duration={1000} spy={true} offset={-100} key={link} to={path} className='block hover:text-gray-500'>{link}</Link>)
                     }
                  </ul>
             </div>
@@ -51,7 +53,7 @@ export default function Navbar() {
     {/* navbar for mobile devices */}
     <div className={`space-y-4 px-4 pt-24 pb-5 text-lg  bg-secondary ${isMenuOpen?"block fixed top-0 right-0 left-0":" hidden "} md:hidden`}>
         {
-             navItems.map(({link,path})=><a key={link} href={path} className='block hover:text-gray-500'>{link}</a>)
+             navItems.map(({link,path})=><Link onClick={toggleMenu} activeClass='active' smooth={true} spy={true} offset={-80} key={link} to={path} className='block text-white hover:text-gray-500'>{link}</Link>)
         }
     </div>
     </>
