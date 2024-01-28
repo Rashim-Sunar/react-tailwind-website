@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {motion} from 'framer-motion'
+import {fadeIn} from './variants'
 
 export default function Pricing() {
   const[isYearly,setIsYearly]=useState(false);
@@ -34,7 +36,12 @@ export default function Pricing() {
       </div>
 
       {/* pricing cards */}
-      <div className="grid sm-grid-cols-2 lg:grid-cols-3 mt-20 mx-auto gap-10 md:w-11/12">
+      <motion.div className="grid sm-grid-cols-2 lg:grid-cols-3 mt-20 mx-auto gap-10 md:w-11/12"
+      variants={fadeIn('up',0.2)}
+      initial='hidden'
+      whileInView={'show'}
+      viewport={{once:false,amount:0.5}}
+      >
           {
             packages.map((pkg,index)=> <div key={index} className="border py-10 px-4 md:px-6 rounded-lg shadow-3xl">
               <h3 className="text-3xl font-bold text-center text-primary">{pkg.name}</h3>
@@ -54,7 +61,7 @@ export default function Pricing() {
 
             )
           }
-      </div>
+      </motion.div>
     </div>
   );
 }
